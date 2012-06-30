@@ -11,6 +11,8 @@ common: &common
 development:
   adapter: postgresql
   database: sample_app_dev
+  username: bruno
+  password: 123456
   pool: 5
   timeout: 5000
 
@@ -20,11 +22,15 @@ development:
 test:
   adapter: postgresql
   database: sample_app_test
+  username: bruno
+  password: 123456
   pool: 5
   timeout: 5000
 
 production:
   adapter: postgresql
   database: sample_app_production
+  username: bruno
+  password: 123456
   pool: 5
   timeout: 5000
