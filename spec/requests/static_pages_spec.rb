@@ -7,7 +7,7 @@ describe "Static pages" do
   describe "Home page" do
 
     it "deve conter a expressao 'Sample App'" do
-      visit home_path
+      visit root_path
       page.should have_content('Sample App')
     end
 

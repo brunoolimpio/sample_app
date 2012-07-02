@@ -9,6 +9,7 @@ SampleApp::Application.routes.draw do
 
 # Foi substituída por esta:
 
+  root to:'static_pages#home'
   match '/home',    to: 'static_pages#home'
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
