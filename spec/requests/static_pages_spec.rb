@@ -2,59 +2,34 @@ require 'spec_helper'
 
 describe "Static pages" do
 
-  let(:base_title) { "Ruby on Rails Tutorial Sample App" }
+  subject { page }
 
   describe "Home page" do
+    before { visit root_path }
 
-    it "deve conter a expressao 'Sample App'" do
-      visit root_path
-      page.should have_content('Sample App')
-    end
-
-    it "deve conter o titulo base" do
-      visit home_path
-      page.should have_selector('title', :text => "#{base_title}")
-    end
-
-    it "nao deve conter o titulo Home" do
-      visit home_path
-      page.should_not have_selector('title', :text => "Home")
-    end
+    it { should have_selector('h1',    text: 'Sample App') }
+    it { should have_selector('title', text: full_title('')) }
+    it { should_not have_selector 'title', text: '| Home' }
   end
 
-  describe "Help page"	do
-  	it "deve conter a expressao 'Help'" do
-  		visit help_path
-  		page.should have_content('Help')
-  	end
+  describe "Help page" do
+    before { visit help_path }
 
-    it "deve conter o titulo 'Ruby on Rails Tutorial Sample App | Help'" do
-      visit help_path
-      page.should have_selector('title', :text => "#{base_title} | Help")
-    end
+    it { should have_selector('h1',    text: 'Help') }
+    it { should have_selector('title', text: full_title('')) }
   end
 
   describe "About page" do
-  	it "deve conter a expressao 'About'" do
-  		visit about_path
-  		page.should have_content('About')
-  	end
+    before { visit about_path }
 
-    it "deve conter o titulo 'Ruby on Rails Tutorial Sample App | About Us'" do
-      visit about_path
-      page.should have_selector('title', :text => "#{base_title} | About Us")
-    end
+    it { should have_selector('h1',    text: 'About') }
+    it { should have_selector('title', text: full_title('')) }
   end
 
   describe "Contact page" do
-    it "deve conter o h1 Contact" do
-      visit contact_path
-      page.should have_selector('h1', text: 'Contact')
-    end
+    before { visit contact_path }
 
-    it "deve conter o titulo 'Ruby on Rails Tutorial Sample App | Contact'" do
-      visit contact_path
-      page.should have_selector('title', :text => "Ruby on Rails Tutorial Sample App | Contact")
-    end
+    it { should have_selector('h1',    text: 'Contact') }
+    it { should have_selector('title', text: full_title('')) }
   end
 end
