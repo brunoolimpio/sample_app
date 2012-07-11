@@ -1,5 +1,5 @@
 # == Schema Information
-# Gerado com o comando "bundle exec annotate --position before"
+# Gerado com o comando "bundle exec annotate --position before" em 11/07/2012.
 # Table name: users
 #
 #  id              :integer         not null, primary key
