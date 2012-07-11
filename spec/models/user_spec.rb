@@ -120,4 +120,14 @@ describe User do
 	      specify { user_for_invalid_password.should be_false }
 	    end
 	end
+
+	describe "email com maiusculas e minusculas" do
+		let(:mixed_case_email) {"ExeMPLo@eXaplE.CoM"}
+		
+		it "deve ser salvo apenas em minusculas" do
+			@user.email = mixed_case_email
+			@user.save
+			@user.reload.email.should == mixed_case_email.downcase
+		end
+	end
 end
